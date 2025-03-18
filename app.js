@@ -42,28 +42,28 @@
 
 
 
-const logMessage = (message, time) => {
+// const logMessage = (message, time) => {
 
-    return new Promise((resolve, reject) => {
-        if (!time) reject({error: 'time not set'})
+//     return new Promise((resolve, reject) => {
+//         if (!time) reject({error: 'time not set'})
 
-        console.log(message, time)
-        setTimeout(() => {
-        resolve(new Date().toLocaleTimeString())
-    }, 1000)
-    })
-}
+//         console.log(message, time)
+//         setTimeout(() => {
+//         resolve(new Date().toLocaleTimeString())
+//     }, 1000)
+//     })
+// }
 
-(async () => {
-    try {
-    const t1 = await logMessage('How')
-    const t2 = await logMessage('are', t1)
-    console.log('you', t2)
-    } 
-    catch({error}) {
-        console.error(error)
-    }
-})()
+// (async () => {
+//     try {
+//     const t1 = await logMessage('How')
+//     const t2 = await logMessage('are', t1)
+//     console.log('you', t2)
+//     } 
+//     catch({error}) {
+//         console.error(error)
+//     }
+// })()
 
 // logMessage('hi')
 //     .then(time => logMessage('there', time))
@@ -71,3 +71,10 @@ const logMessage = (message, time) => {
 //     .then(time => logMessage('are', time))
 //     .then(time => console.log('you?', time))
 //     .catch(({error}) => console.log(error))
+
+const url='https://swapi.dev/api/films/3'
+
+const data = await fetch(url)
+const json = await data.json()
+
+console.log(json.opening_crawl)
